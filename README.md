@@ -90,12 +90,6 @@ npx expo build:ios
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Contact
-
-Your Name - caseylein1@gmail.com
-
-Project Link: [https://github.com/Casey-Jeremy/calculator-app](https://github.com/Casey-Jeremy/calculator-app)
-
 ## Acknowledgments
 
 - Thanks to the React Native community
