@@ -1,29 +1,43 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+// app/_layout.js
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { Link, Stack } from 'expo-router';
+import { Text, TouchableOpacity } from 'react-native';
+import { colors } from '../constants/colors';
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
-  }
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Stack
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.background,
+          shadowOpacity: 0, // Removes the line under the header on iOS
+          elevation: 0, // Removes the shadow on Android
+        },
+        headerTintColor: colors.textLight,
+      }}
+    >
+      <Stack.Screen
+        name="index" // This refers to app/index.js
+        options={{
+          title: 'Calculator',
+          headerRight: () => (
+            <Link href="/ExchangeRateScreen" asChild>
+              <TouchableOpacity>
+                <Text style={{ color: colors.accent, marginRight: 15, fontSize: 18 }}>
+                  FX
+                </Text>
+              </TouchableOpacity>
+            </Link>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="exchangeRate" // This refers to app/exchangeRate.js
+        options={{ 
+          title: 'Exchange Rates',
+          presentation: 'modal', // Makes it slide up from the bottom
+        }}
+      />
+    </Stack>
   );
 }
