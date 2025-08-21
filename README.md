@@ -10,7 +10,7 @@ A simple, modern calculator built with React Native and Expo. This app features 
 - 💱 **Real-time Exchange Rates**: Integrated currency exchange API for up-to-date conversion rates
 - 🚀 **Built with React Native & Expo**: Cross-platform compatibility for iOS and Android
 
-## Screenshots
+## Preview
 
 <!-- Add your app preview screenshots here -->
 
