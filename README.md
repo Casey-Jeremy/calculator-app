@@ -12,7 +12,7 @@ A simple, modern calculator built with React Native and Expo. This app features 
 
 ## Preview
 
-<!-- Add your app preview screenshots here -->
+![](preview.png)
 
 ## Technologies Used
 
